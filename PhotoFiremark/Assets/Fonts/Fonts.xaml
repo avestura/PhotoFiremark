@@ -1,0 +1,11 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:PhotoFiremark.Assets.Fonts">
+
+    <!--  Insert your font resources here  -->
+    <!--
+    <FontFamily x:Key="Fonts.[FontName]">[FontName], pack://application:,,,/PhotoFiremark;component/Assets/Fonts/#[FontName]</FontFamily>
+    -->
+
+</ResourceDictionary>
