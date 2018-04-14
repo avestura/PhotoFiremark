@@ -96,15 +96,16 @@ namespace PhotoFiremark
         }
 
         #region Animation :: Show And Fade
-        public static void HideUsingLinearAnimation(this UIElement element, int milliSeconds = 500)
+        public static void HideUsingLinearAnimation(this UIElement element, int milliSeconds = 500, IEasingFunction easingFunction = null)
         {
             if (element == null) return;
             var anim = new DoubleAnimation()
             {
                 From = 1,
                 To = 0,
-                Duration = new TimeSpan(0, 0, 0, 0, milliSeconds)
+                Duration = new TimeSpan(0, 0, 0, 0, milliSeconds),
             };
+            if (easingFunction != null) anim.EasingFunction = easingFunction;
 
             anim.Completed += new EventHandler((sender, e) =>
             {
@@ -116,7 +117,7 @@ namespace PhotoFiremark
 
         }
 
-        public static void ShowUsingLinearAnimation(this UIElement element, int milliSeconds = 500)
+        public static void ShowUsingLinearAnimation(this UIElement element, int milliSeconds = 500, IEasingFunction easingFunction = null)
         {
             if (element == null) return;
             var anim = new DoubleAnimation()
@@ -125,6 +126,7 @@ namespace PhotoFiremark
                 To = 1,
                 Duration = new TimeSpan(0, 0, 0, 0, milliSeconds)
             };
+            if (easingFunction != null) anim.EasingFunction = easingFunction;
 
             element.Opacity = 0;
             element.Visibility = Visibility.Visible;
@@ -132,27 +134,27 @@ namespace PhotoFiremark
 
         }
 
-        public static Task HideUsingLinearAnimationAsync(this UIElement element, int milliSeconds = 500)
+        public static Task HideUsingLinearAnimationAsync(this UIElement element, int milliSeconds = 500, IEasingFunction easingFunction = null)
         {
             return Task.Run(async () =>
             {
                 if (element == null) return;
                 element.Dispatcher.Invoke(() =>
                 {
-                    HideUsingLinearAnimation(element, milliSeconds);
+                    HideUsingLinearAnimation(element, milliSeconds, easingFunction);
                 });
                 await Task.Delay(milliSeconds);
             });
         }
 
-        public static Task ShowUsingLinearAnimationAsync(this UIElement element, int milliSeconds = 500)
+        public static Task ShowUsingLinearAnimationAsync(this UIElement element, int milliSeconds = 500, IEasingFunction easingFunction = null)
         {
             return Task.Run(async () =>
             {
                 if (element == null) return;
                 element.Dispatcher.Invoke(() =>
                 {
-                    ShowUsingLinearAnimation(element, milliSeconds);
+                    ShowUsingLinearAnimation(element, milliSeconds, easingFunction);
                 });
                 await Task.Delay(milliSeconds);
             });
