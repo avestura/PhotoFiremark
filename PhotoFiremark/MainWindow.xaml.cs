@@ -1,4 +1,5 @@
 ﻿using PhotoFiremark.Models;
+using PhotoFiremark.Views.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,16 @@ namespace PhotoFiremark
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            MainFrame.Navigate(new MainPage());
+        }
 
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            try
+            {
+                MainFrame.MarginFadeInAnimation(new Thickness(20, 0, 0, 0), new Thickness(0), TimeSpan.FromMilliseconds(500));
+            }
+            catch { }
         }
     }
 }

@@ -48,6 +48,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -69,15 +70,25 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Compile Include="Animation.cs" />
+    <Compile Include="Assets\InteractiveImage\PhotosIllustration.xaml.cs">
+      <DependentUpon>PhotosIllustration.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Configuration.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Models\NewModel.cs" />
+    <Compile Include="Utilities\BitmapSourceConverter.cs" />
     <Compile Include="ViewModels\NewViewModel.cs" />
     <Compile Include="Views\Controls\WaveCircle\WaveCircle.xaml.cs">
       <DependentUpon>WaveCircle.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\SamplePage.xaml.cs">
-      <DependentUpon>SamplePage.xaml</DependentUpon>
+    <Compile Include="Views\Pages\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SelectFiremarkPage.xaml.cs">
+      <DependentUpon>SelectFiremarkPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SelectPhotoPage.xaml.cs">
+      <DependentUpon>SelectPhotoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PartialViews\Menus\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
@@ -97,7 +108,13 @@
     <Page Include="Assets\Fonts\Fonts.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Assets\Images\Illustrations.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Assets\Images\MenuIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\InteractiveImage\PhotosIllustration.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Assets\Strings\ApplicationStrings.xaml">
@@ -118,13 +135,22 @@
     <Page Include="Views\Controls\WaveCircle\WaveCircle.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\SamplePage.xaml">
+    <Page Include="Views\Pages\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\SelectFiremarkPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\SelectPhotoPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PartialViews\Menus\MainMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Styles\GeneralStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Templates\Buttons\SimpleButton.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Templates\GeneralTemplates.xaml">
@@ -149,6 +175,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Assets\Fonts\IRANSans\IRANSans.ttf" />
+    <Resource Include="Assets\Fonts\IRANSans\IRANSans_Bold.ttf" />
+    <Resource Include="Assets\Fonts\IRANSans\IRANSans_Light.ttf" />
+    <Resource Include="Assets\Fonts\IRANSans\IRANSans_Medium.ttf" />
+    <Resource Include="Assets\Fonts\IRANSans\IRANSans_UltraLight.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -164,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Photos\AryanSoftware_Logo.svg" />
+    <Content Include="Assets\Photos\PhotosSVG.svg" />
     <Resource Include="License-LGPL.txt" />
     <Resource Include="Assets\Photos\Pattern_CreamPixels.png" />
   </ItemGroup>
