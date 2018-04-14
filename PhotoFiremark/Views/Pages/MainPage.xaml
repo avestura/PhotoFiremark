@@ -1,0 +1,83 @@
+﻿<Page
+    x:Class="PhotoFiremark.Views.Pages.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
+    xmlns:ia="clr-namespace:PhotoFiremark.Assets.InteractiveImage"
+    xmlns:local="clr-namespace:PhotoFiremark.Views.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainPage"
+    d:DesignHeight="600"
+    d:DesignWidth="1000"
+    Background="#FFEEEEEE"
+    FontFamily="{StaticResource Fonts.IranSans}"
+    mc:Ignorable="d">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ia:PhotosIllustration Height="200" />
+            <TextBlock
+                Margin="10"
+                FontSize="40"
+                Foreground="#FF5D5D5D">
+                Secret Photo
+            </TextBlock>
+
+            <Button
+                Height="40"
+                Margin="4,0,0,0"
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
+                Click="Button_Click"
+                FontSize="16"
+                Style="{DynamicResource PhotoFireMark.Templates.Button.SimpleButton}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Background="#FFBFBFBF">
+                        <fa:ImageAwesome
+                            Width="15"
+                            Margin="5,0"
+                            Icon="Fire" />
+                    </Border>
+                    <TextBlock
+                        Grid.Column="1"
+                        Margin="10"
+                        VerticalAlignment="Center">
+                        Embed Photo
+                    </TextBlock>
+                </Grid>
+            </Button>
+            <Button
+                Height="40"
+                Margin="4,5,0,0"
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
+                FontSize="16"
+                Style="{DynamicResource PhotoFireMark.Templates.Button.SimpleButton}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Background="#FFBFBFBF">
+                        <fa:ImageAwesome
+                            Height="15"
+                            Margin="5,0"
+                            Icon="FireExtinguisher" />
+                    </Border>
+                    <TextBlock
+                        Grid.Column="1"
+                        Margin="10"
+                        VerticalAlignment="Center">
+                        Reveal Photo
+                    </TextBlock>
+                </Grid>
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</Page>

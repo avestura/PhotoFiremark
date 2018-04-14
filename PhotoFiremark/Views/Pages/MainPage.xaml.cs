@@ -16,13 +16,18 @@ using System.Windows.Shapes;
 namespace PhotoFiremark.Views.Pages
 {
     /// <summary>
-    /// Interaction logic for SamplePage.xaml
+    /// Interaction logic for MainPage.xaml
     /// </summary>
-    public partial class SamplePage : Page
+    public partial class MainPage : Page
     {
-        public SamplePage()
+        public MainPage()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            App.CastedMainWindow().MainFrame.Navigate(new SelectPhotoPage());
         }
     }
 }
