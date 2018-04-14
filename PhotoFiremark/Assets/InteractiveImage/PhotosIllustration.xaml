@@ -11,7 +11,7 @@
     <UserControl.Resources>
         <Color x:Key="FireFrom">#FFCE00</Color>
         <Color x:Key="FireBy">#FF9A00</Color>
-        <Color x:Key="FireTo">#FF5A00</Color>
+        <Color x:Key="FireTo">red</Color>
         <Storyboard x:Key="story">
             <ColorAnimation
                 AutoReverse="True"
@@ -20,7 +20,7 @@
                 Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
                 From="{StaticResource FireFrom}"
                 To="{StaticResource FireTo}"
-                Duration="0:0:5" />
+                Duration="0:0:1" />
 
         </Storyboard>
     </UserControl.Resources>
