@@ -29,7 +29,10 @@
             Click="Button_Click"
             Style="{DynamicResource ButtonStyle1}">
 
-            <fa:ImageAwesome Width="15" Icon="Home" Foreground="#FF4E4E4E" />
+            <fa:ImageAwesome
+                Width="15"
+                Foreground="#FF4E4E4E"
+                Icon="Home" />
 
         </Button>
         <Frame
