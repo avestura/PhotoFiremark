@@ -21,6 +21,7 @@
 
                 <!--#region Images-->
                 <ResourceDictionary Source="pack://application:,,,/PhotoFiremark;component/Assets/Images/MenuIcons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/PhotoFiremark;component/Assets/Images/Illustrations.xaml" />
                 <!--#endregion-->
 
                 <!--#region Strings-->
@@ -33,9 +34,12 @@
 
                 <!--#region Templates-->
                 <ResourceDictionary Source="pack://application:,,,/PhotoFiremark;component/Views/Templates/GeneralTemplates.xaml" />
+
+                <ResourceDictionary Source="pack://application:,,,/PhotoFiremark;component/Views/Templates/Buttons/SimpleButton.xaml" />
                 <!--#endregion-->
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
+

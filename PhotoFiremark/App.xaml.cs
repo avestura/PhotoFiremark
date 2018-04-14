@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Emgu.CV;
+using Emgu.CV.Structure;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -15,7 +17,15 @@ namespace PhotoFiremark
     {
         public static App CurrentApp => (App)Current;
 
+        public static MainWindow CastedMainWindow() => CurrentApp.MainWindow as MainWindow;
+
         public Configuration Configuration { get; set; }
+
+        public Image<Rgb, byte> ContainerImage { get; set; }
+
+        public Image<Rgb, byte> FiremarkImage { get; set; }
+
+        public Image<Rgb, byte> ResultImage { get; set; }
 
     }
 }
