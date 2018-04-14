@@ -36,6 +36,8 @@
                 <ResourceDictionary Source="pack://application:,,,/PhotoFiremark;component/Views/Templates/GeneralTemplates.xaml" />
 
                 <ResourceDictionary Source="pack://application:,,,/PhotoFiremark;component/Views/Templates/Buttons/SimpleButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/PhotoFiremark;component/Views/Templates/Buttons/RoundButton.xaml" />
+
                 <!--#endregion-->
 
             </ResourceDictionary.MergedDictionaries>

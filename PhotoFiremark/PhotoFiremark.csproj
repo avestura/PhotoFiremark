@@ -178,6 +178,9 @@
     <Page Include="Views\Styles\GeneralStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Templates\Buttons\RoundButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Templates\Buttons\SimpleButton.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
