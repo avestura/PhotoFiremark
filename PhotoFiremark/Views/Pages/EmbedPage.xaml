@@ -1,0 +1,61 @@
+﻿<Page
+    x:Class="PhotoFiremark.Views.Pages.EmbedPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
+    xmlns:illustrations="clr-namespace:PhotoFiremark.Assets.InteractiveImage"
+    xmlns:local="clr-namespace:PhotoFiremark.Views.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="EmbedPage"
+    d:DesignHeight="650"
+    d:DesignWidth="1000"
+    Background="#EEEEEE"
+    FontFamily="{StaticResource Fonts.IranSans}"
+    mc:Ignorable="d">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Canvas Width="298" Height="200">
+                <illustrations:MultiPhotoIllustration Height="200" />
+                <fa:ImageAwesome
+                    Canvas.Left="228"
+                    Canvas.Top="130"
+                    Height="60"
+                    Icon="Cog"
+                    Spin="True">
+                    <fa:ImageAwesome.Foreground>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Offset="0" Color="#FF32B32A" />
+                            <GradientStop Offset="1" Color="#FF087902" />
+                        </LinearGradientBrush>
+                    </fa:ImageAwesome.Foreground>
+                </fa:ImageAwesome>
+            </Canvas>
+            <TextBlock
+                Margin="0,20,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="30"
+                Text="Processing">
+                <TextBlock.Triggers>
+                    <EventTrigger RoutedEvent="TextBlock.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <StringAnimationUsingKeyFrames
+                                    RepeatBehavior="Forever"
+                                    Storyboard.TargetProperty="(TextBlock.Text)"
+                                    Duration="0:0:1.25">
+                                    <DiscreteStringKeyFrame KeyTime="0:0:0.25" Value="Processing." />
+                                    <DiscreteStringKeyFrame KeyTime="0:0:0.5" Value="Processing.." />
+                                    <DiscreteStringKeyFrame KeyTime="0:0:0.75" Value="Processing..." />
+                                    <DiscreteStringKeyFrame KeyTime="0:0:1" Value="Processing...." />
+                                </StringAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </TextBlock.Triggers>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>
