@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhotoFiremark.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,19 @@ namespace PhotoFiremark.Views.Pages
         public EmbedPage()
         {
             InitializeComponent();
+        }
+
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            await Task.Run(() =>
+            {
+                var source = App.CurrentApp.ContainerImage;
+                var destination = App.CurrentApp.FiremarkImage;
+
+                App.CurrentApp.ResultImage = source.Embed(destination);
+            });
+
+            App.CastedMainWindow().MainFrame.Navigate(new ResultViewPage());
         }
     }
 }

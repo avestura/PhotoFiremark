@@ -25,7 +25,7 @@
                 Foreground="#FF5D5D5D"><Run Text="Secret Photo" /></TextBlock>
 
             <Button
-                Height="40"
+                Height="50"
                 Margin="4,0,0,0"
                 HorizontalContentAlignment="Stretch"
                 VerticalContentAlignment="Stretch"
@@ -50,10 +50,12 @@
                 </Grid>
             </Button>
             <Button
-                Height="40"
+                x:Name="GoToReveal"
+                Height="50"
                 Margin="4,5,0,0"
                 HorizontalContentAlignment="Stretch"
                 VerticalContentAlignment="Stretch"
+                Click="GoToReveal_Click"
                 FontSize="16"
                 Style="{DynamicResource PhotoFireMark.Templates.Button.SimpleButton}">
                 <Grid>

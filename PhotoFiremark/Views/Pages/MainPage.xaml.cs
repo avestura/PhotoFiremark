@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PhotoFiremark.Utilities;
 
 namespace PhotoFiremark.Views.Pages
 {
@@ -23,11 +24,18 @@ namespace PhotoFiremark.Views.Pages
         public MainPage()
         {
             InitializeComponent();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             App.CastedMainWindow().MainFrame.Navigate(new SelectPhotoPage());
+           
+        }
+
+        private void GoToReveal_Click(object sender, RoutedEventArgs e)
+        {
+            App.CastedMainWindow().MainFrame.Navigate(new RevealPhoto());
         }
     }
 }

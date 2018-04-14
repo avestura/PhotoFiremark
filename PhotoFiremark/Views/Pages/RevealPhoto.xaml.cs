@@ -2,6 +2,7 @@
 using Emgu.CV.Structure;
 using Emgu.CV.WPF;
 using Microsoft.Win32;
+using PhotoFiremark.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,22 +21,26 @@ using System.Windows.Shapes;
 namespace PhotoFiremark.Views.Pages
 {
     /// <summary>
-    /// Interaction logic for SelectFiremarkPage.xaml
+    /// Interaction logic for RevealPhoto.xaml
     /// </summary>
-    public partial class SelectFiremarkPage : Page
+    public partial class RevealPhoto : Page
     {
-        public SelectFiremarkPage()
+        public RevealPhoto()
         {
             InitializeComponent();
         }
 
         bool initialImageLoad = true;
+        bool reveal = true;
+        Image<Rgb, byte> Image = null;
+
+        Image<Rgb, byte> RevealedImage = null;
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             var openFileDialog = new OpenFileDialog
             {
-                Filter = "Jpeg Photos|*.jpg;*.jpeg",
+                Filter = "PNG|*.png",
                 InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
                 Multiselect = false,
                 Title = "Open Image",
@@ -46,10 +51,11 @@ namespace PhotoFiremark.Views.Pages
             var urlString = string.Empty;
             if (openFileDialog.ShowDialog() == true)
             {
+                RevealedImage = null;
                 urlString = openFileDialog.FileName;
 
                 SelectPhotoButton.IsEnabled = false;
-                NextPageButton.IsEnabled = false;
+                RevealButton.IsEnabled = false;
 
                 if (initialImageLoad)
                     ThumbText.Visibility = Visibility.Collapsed;
@@ -64,12 +70,12 @@ namespace PhotoFiremark.Views.Pages
                 await ImagePreview.ShowUsingLinearAnimationAsync();
 
                 SelectPhotoButton.IsEnabled = true;
-                NextPageButton.IsEnabled = true;
+                RevealButton.IsEnabled = true;
 
                 if (initialImageLoad)
                 {
                     initialImageLoad = false;
-                    NextPageButton.ShowUsingLinearAnimation();
+                    RevealButton.ShowUsingLinearAnimation();
                 }
 
             }
@@ -80,18 +86,39 @@ namespace PhotoFiremark.Views.Pages
         {
             await Task.Run(() =>
             {
-                var myImage = new Image<Rgb, byte>(url);
-                myImage = myImage.Resize(350, 350, Emgu.CV.CvEnum.Inter.Nearest);
-                App.CurrentApp.FiremarkImage = myImage.Copy();
+                var newImage = new Image<Rgb, byte>(url);
+                if (Image.Rows == 1000 && Image.Cols == 1000)
+                {
+                    Image = newImage;
+                    ImagePreview.Dispatcher.Invoke(() => { ImagePreview.Source = Image.ToBitmapSource(); });
+                }
+                else
+                    MessageBox.Show("Photo is not a secret one!");
 
-                ImagePreview.Dispatcher.Invoke(() => { ImagePreview.Source = myImage.ToBitmapSource(); });
             });
-
         }
 
-        private void NextPageButton_Click(object sender, RoutedEventArgs e)
+        private void RevealButton_Click(object sender, RoutedEventArgs e)
         {
-            App.CastedMainWindow().MainFrame.Navigate(new EmbedPage());
+            if (reveal)
+            {
+                if(RevealedImage == null)
+                {
+                    RevealedImage = Image.ExtractSecretPhoto();
+                }
+                ImagePreview.Source = RevealedImage.ToBitmapSource();
+                RevealButtonText.Text = "Original Image";
+                RevealButtonIcon.Icon = FontAwesome.WPF.FontAwesomeIcon.Image;
+
+                reveal = false;
+            }
+            else
+            {
+                ImagePreview.Source = Image.ToBitmapSource();
+                RevealButtonText.Text = "Reveal";
+                RevealButtonIcon.Icon = FontAwesome.WPF.FontAwesomeIcon.Eye;
+                reveal = true;
+            }
         }
     }
 }

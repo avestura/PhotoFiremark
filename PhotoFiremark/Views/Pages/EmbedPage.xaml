@@ -12,6 +12,7 @@
     d:DesignWidth="1000"
     Background="#EEEEEE"
     FontFamily="{StaticResource Fonts.IranSans}"
+    Loaded="Page_Loaded"
     mc:Ignorable="d">
 
     <Grid>
@@ -32,6 +33,11 @@
                     </fa:ImageAwesome.Foreground>
                 </fa:ImageAwesome>
             </Canvas>
+            <ProgressBar
+                Height="5"
+                Margin="-5,-2,0,0"
+                BorderThickness="0"
+                IsIndeterminate="True" />
             <TextBlock
                 Margin="0,20,0,0"
                 HorizontalAlignment="Center"

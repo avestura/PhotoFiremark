@@ -83,7 +83,7 @@ namespace PhotoFiremark.Views.Pages
                 var myImage = new Image<Rgb, byte>(url);
                 myImage = myImage.Resize(1000, 1000, Emgu.CV.CvEnum.Inter.Nearest);
 
-                App.CurrentApp.ContainerImage = myImage;
+                App.CurrentApp.ContainerImage = myImage.Copy();
 
                 ImagePreview.Dispatcher.Invoke(() => { ImagePreview.Source = myImage.ToBitmapSource(); });
             });
