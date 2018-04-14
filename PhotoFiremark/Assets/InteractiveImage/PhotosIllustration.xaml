@@ -1,0 +1,272 @@
+﻿<UserControl
+    x:Class="PhotoFiremark.Assets.InteractiveImage.PhotosIllustration"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:PhotoFiremark.Assets.InteractiveImage"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <Color x:Key="FireFrom">#FFCE00</Color>
+        <Color x:Key="FireBy">#FF9A00</Color>
+        <Color x:Key="FireTo">#FF5A00</Color>
+        <Storyboard x:Key="story">
+            <ColorAnimation
+                AutoReverse="True"
+                By="{StaticResource FireBy}"
+                RepeatBehavior="Forever"
+                Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                From="{StaticResource FireFrom}"
+                To="{StaticResource FireTo}"
+                Duration="0:0:5" />
+
+        </Storyboard>
+    </UserControl.Resources>
+    <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
+        <Canvas Width="837.99" Height="773.52">
+            <Canvas.RenderTransform>
+                <TranslateTransform X="0" Y="0" />
+            </Canvas.RenderTransform>
+            <Canvas.Resources>
+                <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="99e451bd-df46-4cb9-943f-13250b80c008" MappingMode="Absolute" StartPoint="NaN,NaN" EndPoint="NaN,NaN">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStopCollection>
+                            <GradientStop Offset="0" Color="#40808080" />
+                            <GradientStop Offset="0.54" Color="#1F808080" />
+                            <GradientStop Offset="1" Color="#1A808080" />
+                        </GradientStopCollection>
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+                <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="c308d856-5733-41a8-ba98-29ce125fde66" MappingMode="RelativeToBoundingBox" StartPoint="648,773" EndPoint="648,94">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStopCollection>
+                            <GradientStop Offset="0" Color="#40808080" />
+                            <GradientStop Offset="0.54" Color="#1F808080" />
+                            <GradientStop Offset="1" Color="#1A808080" />
+                        </GradientStopCollection>
+                    </LinearGradientBrush.GradientStops>
+                    <LinearGradientBrush.Transform>
+                        <TransformGroup>
+                            <RotateTransform Angle="90" />
+                            <TranslateTransform X="1076.27" Y="-207.13" />
+                        </TransformGroup>
+                    </LinearGradientBrush.Transform>
+                </LinearGradientBrush>
+                <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="74be8b77-8a4d-4b1a-8147-197fdb73194d" MappingMode="RelativeToBoundingBox" StartPoint="365,774" EndPoint="365,95">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStopCollection>
+                            <GradientStop Offset="0" Color="#40808080" />
+                            <GradientStop Offset="0.54" Color="#1F808080" />
+                            <GradientStop Offset="1" Color="#1A808080" />
+                        </GradientStopCollection>
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+                <RectangleGeometry
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:Key="c6bf9c29-af48-46d0-a225-df9048597bc2"
+                    Rect="243.97, 179.29, 533.63, 482.97" />
+                <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="02d28320-0d07-41f1-b820-c14ed7e96a2f" MappingMode="RelativeToBoundingBox" StartPoint="552,712" EndPoint="552,333">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStopCollection>
+                            <GradientStop Offset="0" Color="#40808080" />
+                            <GradientStop Offset="0.54" Color="#1F808080" />
+                            <GradientStop Offset="1" Color="#1A808080" />
+                        </GradientStopCollection>
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+                <RectangleGeometry
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:Key="a46abe2a-1898-452c-b6ed-f00ef7b2f110"
+                    Rect="100,183.23,526.88,469.46" />
+            </Canvas.Resources>
+            <!--  Unknown tag: metadata  -->
+            <!--  Unknown tag: sodipodi:namedview  -->
+            <Rectangle
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                Name="rect3802"
+                Canvas.Left="212"
+                Canvas.Top="-345"
+                Width="678"
+                Height="596"
+                Fill="{StaticResource c308d856-5733-41a8-ba98-29ce125fde66}">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-81.96" />
+                        <TranslateTransform X="-31.09" Y="952.83" />
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                Name="rect3804"
+                Canvas.Left="215"
+                Canvas.Top="-356"
+                Width="650"
+                Height="582"
+                Fill="#FFFFFFFF">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-81.96" />
+                        <TranslateTransform X="-26.75" Y="950.02" />
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                Name="TiltedImage"
+                Canvas.Left="389.72"
+                Canvas.Top="127.54"
+                Width="526.88"
+                Height="469.46"
+                Fill="#FFE58C19">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="8.04" />
+                        <TranslateTransform X="-90.44" Y="-151.04" />
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                Name="TiltedImage2"
+                Canvas.Left="389.72"
+                Canvas.Top="127.54"
+                Width="526.88"
+                Height="469.46"
+                Fill="#FFE58C19"
+                Stroke="#FFE58C19"
+                StrokeMiterLimit="10"
+                StrokeThickness="0">
+                <Rectangle.Triggers>
+                    <EventTrigger RoutedEvent="Rectangle.Loaded">
+                        <BeginStoryboard Storyboard="{StaticResource story}" />
+                    </EventTrigger>
+                </Rectangle.Triggers>
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="8.04" />
+                        <TranslateTransform X="-90.44" Y="-151.04" />
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                Name="rect3808"
+                Canvas.Left="66.92"
+                Canvas.Top="94.66"
+                Width="595.81"
+                Height="678.86"
+                Fill="{StaticResource 74be8b77-8a4d-4b1a-8147-197fdb73194d}" />
+            <Rectangle
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                Name="rect3810"
+                Canvas.Left="73.91"
+                Canvas.Top="104.8"
+                Width="581.85"
+                Height="650.71"
+                Fill="#FFFFFFFF" />
+            <Rectangle
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                Name="rect3812"
+                Canvas.Left="96.43"
+                Canvas.Top="116.05"
+                Width="533.63"
+                Height="482.97"
+                Fill="{StaticResource 99e451bd-df46-4cb9-943f-13250b80c008}" />
+            <Canvas Name="g3816" Clip="{StaticResource c6bf9c29-af48-46d0-a225-df9048597bc2}">
+                <Path
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    Name="path3814"
+                    Fill="{StaticResource 02d28320-0d07-41f1-b820-c14ed7e96a2f}">
+                    <Path.Data>
+                        <PathGeometry Figures="M358.85 459c17.44 19.24 31.75 43 55 54.18 33.73 16.24 74.78-.11 102.56-25.42s47.25-58.7 73.5-85.66c75.33-77.38 203.3-89.22 297.3-37 13.42 7.45 26.46 16.25 35.94 28.44 12.33 15.86 17.64 36.09 21.61 55.89a585 585 0 0 1 11.07 134.52c-1 30.69-6.84 65.43-32.12 82.25-8 5.31-17.23 8.27-26.39 11-135.88 40.07-280 37.32-421.39 31.3-105.4-4.49-212-10.85-312.67-43-4.63-1.48-9.53-3.21-12.51-7.1-3.37-4.4-3.46-10.48-3-16 1.45-18.27 7-35.91 11.21-53.74a364.51 364.51 0 0 0 8.3-113.43c-2.81-33.67-21.67-62.13 17.27-71.55C245.59 388.8 316.77 412.55 358.85 459Z" FillRule="NonZero" />
+                    </Path.Data>
+                    <Path.RenderTransform>
+                        <TranslateTransform X="-147.54" Y="-63.24" />
+                    </Path.RenderTransform>
+                </Path>
+            </Canvas>
+            <Rectangle
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                Name="Rect1"
+                Canvas.Left="100.37"
+                Canvas.Top="119.99"
+                Width="526.88"
+                Height="469.46"
+                Fill="#FFFFFFFF" />
+            <Canvas Name="g3821" Clip="{StaticResource a46abe2a-1898-452c-b6ed-f00ef7b2f110}">
+                <Path
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    Name="path3819"
+                    Canvas.Left="1.6"
+                    Canvas.Top="42.8"
+                    Fill="#FFAACEAF">
+                    <Path.Data>
+                        <PathGeometry Figures="M361.33 455.09c17.22 18.7 31.34 41.78 54.31 52.66 33.3 15.78 73.83-.1 101.26-24.71s46.65-57.06 72.57-83.26c74.38-75.21 200.73-86.73 293.53-36 13.25 7.25 26.13 15.8 35.49 27.64 12.18 15.41 17.41 35.08 21.33 54.33a560.08 560.08 0 0 1 10.93 130.75c-1 29.83-6.75 63.6-31.72 80-7.88 5.16-17 8-26.05 10.66-134.16 39-276.48 36.28-416.06 30.42C372.87 693.2 267.59 687 168.22 655.79c-4.57-1.44-9.41-3.12-12.35-6.9-3.33-4.28-3.42-10.19-3-15.59 1.44-17.76 6.93-34.9 11.07-52.24a349 349 0 0 0 8.19-110.26c-2.77-32.72-21.39-60.39 17.05-69.55C249.51 386.88 319.79 410 361.33 455.09Z" FillRule="NonZero" />
+                    </Path.Data>
+                    <Path.RenderTransform>
+                        <TranslateTransform X="-147.54" Y="-63.24" />
+                    </Path.RenderTransform>
+                </Path>
+            </Canvas>
+            <Ellipse
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                Name="circle3823"
+                Canvas.Left="127.4"
+                Canvas.Top="147"
+                Width="76.6"
+                Height="76.6"
+                Fill="#FFFF5252" />
+            <Rectangle
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                Name="rect3825"
+                Canvas.Left="448.24"
+                Canvas.Top="435.22"
+                Width="18.01"
+                Height="138.47"
+                Fill="#FFE58C19"
+                Stroke="#FFE58C19"
+                StrokeMiterLimit="10"
+                StrokeThickness="0">
+                <Rectangle.Triggers>
+                    <EventTrigger RoutedEvent="Rectangle.Loaded">
+                        <BeginStoryboard Storyboard="{StaticResource story}" />
+                    </EventTrigger>
+                </Rectangle.Triggers>
+            </Rectangle>
+            <Polygon
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                Name="polygon3827"
+                Fill="#FFE58C19"
+                FillRule="NonZero"
+                Points="516.5 429.52 499.44 419.02 514.09 421.63 505.8 394.55 485.74 382.2 503.12 385.8 491.43 347.63 471.88 335.59 488.67 338.59 477.41 301.82 457.51 289.57 474.59 292.62 457.25 235.95 444.71 277.58 457.25 273.1 442.53 284.83 433.43 315.08 457.25 309.13 429.19 329.17 419.41 361.65 444.86 355.29 414.88 376.71 407.32 401.83 426.85 396.94 403.84 413.38 390.82 456.61 524.79 456.61 516.5 429.52"
+                Stroke="#FFE58C19"
+                StrokeMiterLimit="10"
+                StrokeThickness="0">
+                <Polygon.Triggers>
+                    <EventTrigger RoutedEvent="Rectangle.Loaded">
+                        <BeginStoryboard Storyboard="{StaticResource story}" />
+                    </EventTrigger>
+                </Polygon.Triggers>
+            </Polygon>
+            <Rectangle
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                Name="rect3829"
+                Canvas.Left="73.91"
+                Canvas.Top="671.08"
+                Width="581.85"
+                Height="84.44"
+                Fill="#FFE58C19"
+                Stroke="#FFE58C19"
+                StrokeThickness="0">
+                <Rectangle.Triggers>
+                    <EventTrigger RoutedEvent="Rectangle.Loaded">
+                        <BeginStoryboard Storyboard="{StaticResource story}" />
+                    </EventTrigger>
+                </Rectangle.Triggers>
+            </Rectangle>
+        </Canvas>
+    </Viewbox>
+</UserControl>

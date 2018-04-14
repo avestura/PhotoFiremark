@@ -8,4 +8,6 @@
     <FontFamily x:Key="Fonts.[FontName]">[FontName], pack://application:,,,/PhotoFiremark;component/Assets/Fonts/#[FontName]</FontFamily>
     -->
 
+    <FontFamily x:Key="Fonts.IranSans">IRANSans, pack://application:,,,/PhotoFiremark;component/Assets/Fonts/IRANSans/#IRANSans</FontFamily>
+
 </ResourceDictionary>
