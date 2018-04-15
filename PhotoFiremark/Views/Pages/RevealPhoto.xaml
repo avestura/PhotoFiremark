@@ -55,7 +55,18 @@
                     Source="{x:Null}"
                     Visibility="Collapsed" />
             </Grid>
-            <Grid Margin="0,20,0,0">
+            <StackPanel Height="30" Margin="0,10,0,0">
+                <TextBlock
+                    x:Name="ConstructText"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Center"
+                    FontSize="18"
+                    Foreground="Green"
+                    Visibility="Collapsed">
+                    Constructing...
+                </TextBlock>
+            </StackPanel>
+            <Grid Margin="0,5,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />

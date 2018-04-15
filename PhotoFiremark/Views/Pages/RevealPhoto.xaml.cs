@@ -64,47 +64,62 @@ namespace PhotoFiremark.Views.Pages
 
                 await ThumbLoading.ShowUsingLinearAnimationAsync();
 
-                await ProcessImageAsync(urlString);
+                var error = await ProcessImageAsync(urlString);
 
                 await ThumbLoading.HideUsingLinearAnimationAsync();
-                await ImagePreview.ShowUsingLinearAnimationAsync();
+
+                if (!error)
+                {
+                    await ImagePreview.ShowUsingLinearAnimationAsync();
+                    RevealButton.IsEnabled = true;
+                }
 
                 SelectPhotoButton.IsEnabled = true;
-                RevealButton.IsEnabled = true;
 
-                if (initialImageLoad)
-                {
-                    initialImageLoad = false;
+                if (initialImageLoad) initialImageLoad = false;
+                if(!RevealButton.IsVisible && !error)
                     RevealButton.ShowUsingLinearAnimation();
-                }
 
             }
 
         }
 
-        public async Task ProcessImageAsync(string url)
+        public async Task<bool> ProcessImageAsync(string url)
         {
-            await Task.Run(() =>
+            return await Task.Run<bool>(() =>
             {
-                var newImage = new Image<Rgb, byte>(url);
-                if (Image.Rows == 1000 && Image.Cols == 1000)
+                try
                 {
-                    Image = newImage;
-                    ImagePreview.Dispatcher.Invoke(() => { ImagePreview.Source = Image.ToBitmapSource(); });
+                    var newImage = new Image<Rgb, byte>(url);
+                    if (newImage.Rows == 1000 && newImage.Cols == 1000)
+                    {
+                        Image = newImage.Copy();
+                        ImagePreview.Dispatcher.Invoke(() => { ImagePreview.Source = Image.ToBitmapSource(); });
+                        return false;
+                    }
+                    else {
+                        MessageBox.Show("Photo is not a secret one!");
+                    }
                 }
-                else
-                    MessageBox.Show("Photo is not a secret one!");
+                catch
+                {
+                    MessageBox.Show("Image could not be revealed!");
+                }
+
+                return true;
 
             });
         }
 
-        private void RevealButton_Click(object sender, RoutedEventArgs e)
+        private async void RevealButton_Click(object sender, RoutedEventArgs e)
         {
             if (reveal)
             {
                 if(RevealedImage == null)
                 {
+                    await ConstructText.MarginFadeInAnimationAsync(new Thickness(0, 10, 0, 0), new Thickness(0, 0, 0, 0));
                     RevealedImage = Image.ExtractSecretPhoto();
+                    await ConstructText.MarginFadeOutAnimationAsync(new Thickness(0, 0, 0, 0), new Thickness(0, 10, 0, 0));
                 }
                 ImagePreview.Source = RevealedImage.ToBitmapSource();
                 RevealButtonText.Text = "Original Image";
