@@ -1,5 +1,6 @@
 ﻿using Emgu.CV;
 using Emgu.CV.Structure;
+using PhotoFiremark.Views.Pages;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -19,12 +20,21 @@ namespace PhotoFiremark
 
         public static MainWindow CastedMainWindow() => CurrentApp.MainWindow as MainWindow;
 
-        public Configuration Configuration { get; set; }
+        public Configuration Configuration { get; set; } 
 
+        /// <summary>
+        /// Container (Large) image that gets value in <see cref="SelectPhotoPage"/>
+        /// </summary>
         public Image<Rgb, byte> ContainerImage { get; set; }
 
+        /// <summary>
+        /// Secret image that gets value in <see cref="SelectFiremarkPage"/>
+        /// </summary>
         public Image<Rgb, byte> FiremarkImage { get; set; }
 
+        /// <summary>
+        /// Result value of embeding secret photo in container photo
+        /// </summary>
         public Image<Rgb, byte> ResultImage { get; set; }
 
     }

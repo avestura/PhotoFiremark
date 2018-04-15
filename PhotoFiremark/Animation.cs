@@ -10,6 +10,7 @@ namespace PhotoFiremark
 {
     public static class Animation
     {
+        #region Animation :: Margin Fade
 
         public static void MarginFadeInAnimation(this FrameworkElement element, Thickness from, Thickness to, TimeSpan? duration = null, bool useFade = true, bool makeVisible = true)
         {
@@ -56,7 +57,7 @@ namespace PhotoFiremark
         public static async Task MarginFadeInAnimationAsync(this FrameworkElement element, Thickness from, Thickness to, TimeSpan? duration = null, bool useFade = true, bool makeVisible = true)
         {
             if (duration == null) duration = new TimeSpan(0, 0, 1);
-            await Task.Run(async() =>
+            await Task.Run(async () =>
             {
                 if (element == null) return;
                 element.Dispatcher.Invoke(() =>
@@ -123,6 +124,8 @@ namespace PhotoFiremark
             element.BeginStoryboard(storyboard);
 
         }
+
+        #endregion Animation :: Margin Fade
 
         #region Animation :: Show And Fade
         public static void HideUsingLinearAnimation(this UIElement element, int milliSeconds = 500, IEasingFunction easingFunction = null)

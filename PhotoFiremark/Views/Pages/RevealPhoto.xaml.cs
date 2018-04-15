@@ -30,11 +30,25 @@ namespace PhotoFiremark.Views.Pages
             InitializeComponent();
         }
 
-        bool initialImageLoad = true;
-        bool reveal = true;
-        Image<Rgb, byte> Image = null;
+        /// <summary>
+        /// If it is the first time loading image
+        /// </summary>
+        private bool InitialImageLoad { get; set; } = true;
 
-        Image<Rgb, byte> RevealedImage = null;
+        /// <summary>
+        /// Checks wheter app should reveal photo or show the original image
+        /// </summary>
+        bool IsRevealState { get; set; } = true;
+
+        /// <summary>
+        /// Image loaded in UI
+        /// </summary>
+        private Image<Rgb, byte> Image { get; set; } = null;
+
+        /// <summary>
+        /// Revealed image holder
+        /// </summary>
+        private Image<Rgb, byte> RevealedImage { get; set; } = null;
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -57,18 +71,18 @@ namespace PhotoFiremark.Views.Pages
                 SelectPhotoButton.IsEnabled = false;
                 RevealButton.IsEnabled = false;
 
-                if (initialImageLoad)
+                if (InitialImageLoad)
                     ThumbText.Visibility = Visibility.Collapsed;
                 else
                     await ImagePreview.HideUsingLinearAnimationAsync();
 
                 await ThumbLoading.ShowUsingLinearAnimationAsync();
 
-                var error = await ProcessImageAsync(urlString);
+                var availableToProcess = await ProcessImageAsync(urlString);
 
                 await ThumbLoading.HideUsingLinearAnimationAsync();
 
-                if (!error)
+                if (!availableToProcess)
                 {
                     await ImagePreview.ShowUsingLinearAnimationAsync();
                     RevealButton.IsEnabled = true;
@@ -76,14 +90,19 @@ namespace PhotoFiremark.Views.Pages
 
                 SelectPhotoButton.IsEnabled = true;
 
-                if (initialImageLoad) initialImageLoad = false;
-                if(!RevealButton.IsVisible && !error)
+                if (InitialImageLoad) InitialImageLoad = false;
+                if(!RevealButton.IsVisible && !availableToProcess)
                     RevealButton.ShowUsingLinearAnimation();
 
             }
 
         }
 
+        /// <summary>
+        /// Asynchronously process image and shows it in the UI
+        /// </summary>
+        /// <param name="url">Url of image</param>
+        /// <returns>Returns true if any errors occurs</returns>
         public async Task<bool> ProcessImageAsync(string url)
         {
             return await Task.Run<bool>(() =>
@@ -113,7 +132,7 @@ namespace PhotoFiremark.Views.Pages
 
         private async void RevealButton_Click(object sender, RoutedEventArgs e)
         {
-            if (reveal)
+            if (IsRevealState)
             {
                 if(RevealedImage == null)
                 {
@@ -125,14 +144,14 @@ namespace PhotoFiremark.Views.Pages
                 RevealButtonText.Text = "Original Image";
                 RevealButtonIcon.Icon = FontAwesome.WPF.FontAwesomeIcon.Image;
 
-                reveal = false;
+                IsRevealState = false;
             }
             else
             {
                 ImagePreview.Source = Image.ToBitmapSource();
                 RevealButtonText.Text = "Reveal";
                 RevealButtonIcon.Icon = FontAwesome.WPF.FontAwesomeIcon.Eye;
-                reveal = true;
+                IsRevealState = true;
             }
         }
     }

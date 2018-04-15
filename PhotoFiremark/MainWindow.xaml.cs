@@ -31,6 +31,15 @@ namespace PhotoFiremark
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new MainPage());
+            InitializeSignalingEffectOnHomeButton();
+        }
+
+        private void InitializeSignalingEffectOnHomeButton()
+        {
+            Wave.Ellipse.StrokeThickness = 1;
+            Wave.Ellipse.Stroke = Brushes.Gray;
+            Wave.MaximumSignalArea = 50;
+            Wave.IsSignaling = true;
         }
 
         private void MainFrame_Navigated(object sender, NavigationEventArgs e)
