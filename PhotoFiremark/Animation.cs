@@ -53,6 +53,35 @@ namespace PhotoFiremark
             element.BeginStoryboard(storyboard);
 
         }
+        public static async Task MarginFadeInAnimationAsync(this FrameworkElement element, Thickness from, Thickness to, TimeSpan? duration = null, bool useFade = true, bool makeVisible = true)
+        {
+            if (duration == null) duration = new TimeSpan(0, 0, 1);
+            await Task.Run(async() =>
+            {
+                if (element == null) return;
+                element.Dispatcher.Invoke(() =>
+                {
+                    element.MarginFadeInAnimation(from, to, duration, useFade, makeVisible);
+                });
+                await Task.Delay(duration.Value);
+            });
+
+        }
+
+        public static async Task MarginFadeOutAnimationAsync(this FrameworkElement element, Thickness from, Thickness to, TimeSpan? duration = null, bool useFade = true, bool makeVisible = true)
+        {
+            if (duration == null) duration = new TimeSpan(0, 0, 1);
+            await Task.Run(async () =>
+            {
+                if (element == null) return;
+                element.Dispatcher.Invoke(() =>
+                {
+                    element.MarginFadeOutAnimation(from, to, duration, useFade, makeVisible);
+                });
+                await Task.Delay(duration.Value);
+            });
+
+        }
 
         public static void MarginFadeOutAnimation(this FrameworkElement element, Thickness from, Thickness to, TimeSpan? duration = null, bool useFade = true, bool collapse = true)
         {
