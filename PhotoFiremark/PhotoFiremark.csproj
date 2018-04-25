@@ -84,6 +84,7 @@
     <Compile Include="Models\NewModel.cs" />
     <Compile Include="Utilities\BitmapSourceConverter.cs" />
     <Compile Include="Utilities\PhotoHider.cs" />
+    <Compile Include="Utilities\WaveletTransform.cs" />
     <Compile Include="ViewModels\NewViewModel.cs" />
     <Compile Include="Views\Controls\WaveCircle\WaveCircle.xaml.cs">
       <DependentUpon>WaveCircle.xaml</DependentUpon>
