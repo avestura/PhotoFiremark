@@ -27,7 +27,7 @@ namespace PhotoFiremark.Views.Pages
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void GoToEmbed_Click(object sender, RoutedEventArgs e)
         {
             App.CastedMainWindow().MainFrame.Navigate(new SelectPhotoPage());
         }
