@@ -23,7 +23,34 @@
                 Margin="10"
                 FontSize="40"
                 Foreground="#FF5D5D5D"><Run Text="Secret Photo" /></TextBlock>
-
+            <Border
+                Margin="4,5,0,5"
+                BorderBrush="#FF5F5F5F"
+                BorderThickness="0,0,0,0">
+                <StackPanel>
+                    <TextBlock>Watermarking Method:</TextBlock>
+                    <ComboBox
+                        x:Name="MethodSelect_Combo"
+                        BorderThickness="1,1,1,2"
+                        IsReadOnly="True"
+                        SelectedIndex="0"
+                        SelectionChanged="ComboBox_SelectionChanged">
+                        <ComboBoxItem>Time-domain</ComboBoxItem>
+                        <ComboBoxItem>Frequensy-domain</ComboBoxItem>
+                    </ComboBox>
+                    <StackPanel x:Name="WaveletAlgorithmSelect_Region" Visibility="Collapsed">
+                        <TextBlock Margin="0,5,0,0">Wavelet Algorithm:</TextBlock>
+                        <ComboBox
+                            BorderThickness="1,1,1,2"
+                            IsReadOnly="True"
+                            SelectedIndex="0">
+                            <ComboBoxItem>Daub-4</ComboBoxItem>
+                            <ComboBoxItem IsEnabled="False">Daub-10</ComboBoxItem>
+                            <ComboBoxItem IsEnabled="False">Taar</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
             <Button
                 Height="50"
                 Margin="4,0,0,0"
@@ -79,3 +106,4 @@
 
     </Grid>
 </Page>
+

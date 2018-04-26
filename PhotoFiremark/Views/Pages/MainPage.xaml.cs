@@ -30,12 +30,23 @@ namespace PhotoFiremark.Views.Pages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             App.CastedMainWindow().MainFrame.Navigate(new SelectPhotoPage());
-           
         }
 
         private void GoToReveal_Click(object sender, RoutedEventArgs e)
         {
             App.CastedMainWindow().MainFrame.Navigate(new RevealPhoto());
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (MethodSelect_Combo.SelectedIndex == 0)
+            {
+                WaveletAlgorithmSelect_Region.HideUsingLinearAnimation(100);
+            }
+            else
+            {
+                WaveletAlgorithmSelect_Region.ShowUsingLinearAnimation(100);
+            }
         }
     }
 }
