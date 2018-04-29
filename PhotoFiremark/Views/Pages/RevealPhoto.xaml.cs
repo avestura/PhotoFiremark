@@ -74,17 +74,17 @@ namespace PhotoFiremark.Views.Pages
                 if (InitialImageLoad)
                     ThumbText.Visibility = Visibility.Collapsed;
                 else
-                    await ImagePreview.HideUsingLinearAnimationAsync();
+                    await ImagePreview.HideUsingLinearAnimationAsync(milliSeconds: 250);
 
-                await ThumbLoading.ShowUsingLinearAnimationAsync();
+                await ThumbLoading.ShowUsingLinearAnimationAsync(milliSeconds: 250);
 
                 var availableToProcess = await ProcessImageAsync(urlString);
 
-                await ThumbLoading.HideUsingLinearAnimationAsync();
+                await ThumbLoading.HideUsingLinearAnimationAsync(milliSeconds: 250);
 
                 if (!availableToProcess)
                 {
-                    await ImagePreview.ShowUsingLinearAnimationAsync();
+                    await ImagePreview.ShowUsingLinearAnimationAsync(milliSeconds: 250);
                     RevealButton.IsEnabled = true;
                 }
 
@@ -92,7 +92,7 @@ namespace PhotoFiremark.Views.Pages
 
                 if (InitialImageLoad) InitialImageLoad = false;
                 if(!RevealButton.IsVisible && !availableToProcess)
-                    RevealButton.ShowUsingLinearAnimation();
+                    RevealButton.ShowUsingLinearAnimation(milliSeconds: 250);
 
             }
 
