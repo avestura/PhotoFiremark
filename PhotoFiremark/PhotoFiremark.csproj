@@ -107,6 +107,9 @@
     <Compile Include="Views\Pages\SelectPhotoPage.xaml.cs">
       <DependentUpon>SelectPhotoPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\WaveletLab.xaml.cs">
+      <DependentUpon>WaveletLab.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PartialViews\Menus\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
@@ -171,6 +174,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\SelectPhotoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\WaveletLab.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PartialViews\Menus\MainMenu.xaml">

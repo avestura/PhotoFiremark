@@ -54,14 +54,14 @@ namespace PhotoFiremark.Views.Pages
                 if (initialImageLoad)
                     ThumbText.Visibility = Visibility.Collapsed;
                 else
-                    await ImagePreview.HideUsingLinearAnimationAsync();
+                    await ImagePreview.HideUsingLinearAnimationAsync(milliSeconds: 250);
 
-                await ThumbLoading.ShowUsingLinearAnimationAsync();
+                await ThumbLoading.ShowUsingLinearAnimationAsync(milliSeconds: 250);
 
                 await ProcessImageAsync(urlString);
 
-                await ThumbLoading.HideUsingLinearAnimationAsync();
-                await ImagePreview.ShowUsingLinearAnimationAsync();
+                await ThumbLoading.HideUsingLinearAnimationAsync(milliSeconds: 250);
+                await ImagePreview.ShowUsingLinearAnimationAsync(milliSeconds: 250);
 
                 SelectPhotoButton.IsEnabled = true;
                 NextPageButton.IsEnabled = true;
@@ -69,7 +69,7 @@ namespace PhotoFiremark.Views.Pages
                 if (initialImageLoad)
                 {
                     initialImageLoad = false;
-                    NextPageButton.ShowUsingLinearAnimation();
+                    NextPageButton.ShowUsingLinearAnimation(milliSeconds: 250);
                 }
 
             }
@@ -91,7 +91,10 @@ namespace PhotoFiremark.Views.Pages
 
         private void NextPageButton_Click(object sender, RoutedEventArgs e)
         {
-            App.CastedMainWindow().MainFrame.Navigate(new EmbedPage());
+            if (App.CurrentApp.Configuration.Domain == App.FiremarkDomain.Time)
+                App.CastedMainWindow().MainFrame.Navigate(new EmbedPage());
+            else
+                App.CastedMainWindow().MainFrame.Navigate(new WaveletLab());
         }
     }
 }

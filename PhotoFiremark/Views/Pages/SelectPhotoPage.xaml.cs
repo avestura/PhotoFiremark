@@ -54,14 +54,14 @@ namespace PhotoFiremark.Views.Pages
                 if(initialImageLoad)
                     ThumbText.Visibility = Visibility.Collapsed;
                 else
-                    await ImagePreview.HideUsingLinearAnimationAsync();
+                    await ImagePreview.HideUsingLinearAnimationAsync(milliSeconds: 250);
 
-                await ThumbLoading.ShowUsingLinearAnimationAsync();
+                await ThumbLoading.ShowUsingLinearAnimationAsync(milliSeconds: 250);
 
                 await ProcessImageAsync(urlString);
 
-                await ThumbLoading.HideUsingLinearAnimationAsync();
-                await ImagePreview.ShowUsingLinearAnimationAsync();
+                await ThumbLoading.HideUsingLinearAnimationAsync(milliSeconds: 250);
+                await ImagePreview.ShowUsingLinearAnimationAsync(milliSeconds: 250);
 
                 SelectPhotoButton.IsEnabled = true;
                 NextPageButton.IsEnabled = true;
@@ -69,11 +69,11 @@ namespace PhotoFiremark.Views.Pages
                 if (initialImageLoad)
                 {
                     initialImageLoad = false;
-                    NextPageButton.ShowUsingLinearAnimation();
+                    NextPageButton.ShowUsingLinearAnimation(milliSeconds: 250);
                 }
 
             }
-            
+
         }
 
         public async Task ProcessImageAsync(string url)
@@ -81,7 +81,7 @@ namespace PhotoFiremark.Views.Pages
             await Task.Run(() =>
             {
                 var myImage = new Image<Rgb, byte>(url);
-                myImage = myImage.Resize(1000, 1000, Emgu.CV.CvEnum.Inter.Nearest);
+                myImage = myImage.Resize(1024, 1024, Emgu.CV.CvEnum.Inter.Nearest);
 
                 App.CurrentApp.ContainerImage = myImage.Copy();
 

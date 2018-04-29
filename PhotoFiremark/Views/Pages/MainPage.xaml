@@ -14,13 +14,16 @@
     d:DesignWidth="1000"
     Background="#FFEEEEEE"
     FontFamily="{StaticResource Fonts.IranSans}"
+    Loaded="Page_Loaded"
     mc:Ignorable="d">
 
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
             <ia:PhotosIllustration Height="200" />
             <TextBlock
                 Margin="10"
+                HorizontalAlignment="Center"
                 FontSize="40"
                 Foreground="#FF5D5D5D"><Run Text="Secret Photo" /></TextBlock>
             <Border
@@ -33,7 +36,6 @@
                         x:Name="MethodSelect_Combo"
                         BorderThickness="1,1,1,2"
                         IsReadOnly="True"
-                        SelectedIndex="0"
                         SelectionChanged="ComboBox_SelectionChanged">
                         <ComboBoxItem>Time-domain</ComboBoxItem>
                         <ComboBoxItem>Frequensy-domain</ComboBoxItem>
@@ -49,6 +51,27 @@
                             <ComboBoxItem IsEnabled="False">Taar</ComboBoxItem>
                         </ComboBox>
                     </StackPanel>
+                </StackPanel>
+            </Border>
+            <Border
+                x:Name="TimeDomainSignal_Alert"
+                Height="25"
+                Margin="4,0,0,5"
+                Background="#FFF0F0B7"
+                BorderBrush="#FFA39300"
+                BorderThickness="5,0,0,0"
+                Visibility="Collapsed">
+                <StackPanel Margin="5,0" Orientation="Horizontal">
+                    <fa:ImageAwesome
+                        Height="16"
+                        Foreground="#FFA39300"
+                        Icon="Warning" />
+                    <TextBlock
+                        Margin="2,0,0,0"
+                        VerticalAlignment="Center"
+                        Foreground="#FF796D00">
+                        Time-domain image signals can only be saved as PNG
+                    </TextBlock>
                 </StackPanel>
             </Border>
             <Button

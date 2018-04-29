@@ -128,7 +128,7 @@ namespace PhotoFiremark
         #endregion Animation :: Margin Fade
 
         #region Animation :: Show And Fade
-        public static void HideUsingLinearAnimation(this UIElement element, int milliSeconds = 500, IEasingFunction easingFunction = null)
+        public static void HideUsingLinearAnimation(this UIElement element, int milliSeconds = 500, IEasingFunction easingFunction = null, bool collapse = true)
         {
             if (element == null) return;
             var anim = new DoubleAnimation()
@@ -141,7 +141,10 @@ namespace PhotoFiremark
 
             anim.Completed += new EventHandler((sender, e) =>
             {
-                element.Visibility = Visibility.Collapsed;
+                if (collapse)
+                    element.Visibility = Visibility.Collapsed;
+                else
+                    element.Visibility = Visibility.Hidden;
             });
             element.Opacity = 1;
             element.Visibility = Visibility.Visible;
@@ -166,14 +169,14 @@ namespace PhotoFiremark
 
         }
 
-        public static Task HideUsingLinearAnimationAsync(this UIElement element, int milliSeconds = 500, IEasingFunction easingFunction = null)
+        public static Task HideUsingLinearAnimationAsync(this UIElement element, int milliSeconds = 500, IEasingFunction easingFunction = null, bool collapse = true)
         {
             return Task.Run(async () =>
             {
                 if (element == null) return;
                 element.Dispatcher.Invoke(() =>
                 {
-                    HideUsingLinearAnimation(element, milliSeconds, easingFunction);
+                    HideUsingLinearAnimation(element, milliSeconds, easingFunction, collapse);
                 });
                 await Task.Delay(milliSeconds);
             });

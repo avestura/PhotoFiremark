@@ -20,7 +20,7 @@ namespace PhotoFiremark
 
         public static MainWindow CastedMainWindow() => CurrentApp.MainWindow as MainWindow;
 
-        public Configuration Configuration { get; set; } 
+        public Configuration Configuration { get; set; }
 
         /// <summary>
         /// Container (Large) image that gets value in <see cref="SelectPhotoPage"/>
@@ -37,5 +37,20 @@ namespace PhotoFiremark
         /// </summary>
         public Image<Rgb, byte> ResultImage { get; set; }
 
+        public enum FiremarkDomain
+        {
+            Time, Frequesny
+        }
+
+        private void Application_LoadCompleted(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
+        }
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            Configuration.InitializeLocalFolder();
+            Configuration.LoadSettingsFromFile();
+        }
     }
 }

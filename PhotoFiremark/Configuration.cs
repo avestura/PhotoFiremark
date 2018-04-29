@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
+using static PhotoFiremark.App;
 
 namespace PhotoFiremark
 {
@@ -19,6 +20,8 @@ namespace PhotoFiremark
         [XmlIgnore]
         public string IgnoredProperty { get; set; }
         public string StoredProperty { get; set; }
+
+        public FiremarkDomain Domain { get; set; }
         #endregion
 
         #region Config :: Constants

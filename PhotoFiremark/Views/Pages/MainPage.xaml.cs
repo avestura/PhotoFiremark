@@ -27,6 +27,8 @@ namespace PhotoFiremark.Views.Pages
 
         }
 
+        private bool firstTimeInit = true;
+
         private void GoToEmbed_Click(object sender, RoutedEventArgs e)
         {
             App.CastedMainWindow().MainFrame.Navigate(new SelectPhotoPage());
@@ -37,16 +39,41 @@ namespace PhotoFiremark.Views.Pages
             App.CastedMainWindow().MainFrame.Navigate(new RevealPhoto());
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (MethodSelect_Combo.SelectedIndex == 0)
             {
-                WaveletAlgorithmSelect_Region.HideUsingLinearAnimation(100);
+                App.CurrentApp.Configuration.Domain = App.FiremarkDomain.Time;
+
+                if (!firstTimeInit)
+                {
+                    await WaveletAlgorithmSelect_Region.HideUsingLinearAnimationAsync(500);
+                }
+
+                await TimeDomainSignal_Alert.ShowUsingLinearAnimationAsync(500);
             }
             else
             {
-                WaveletAlgorithmSelect_Region.ShowUsingLinearAnimation(100);
+                App.CurrentApp.Configuration.Domain = App.FiremarkDomain.Frequesny;
+
+                if (!firstTimeInit)
+                {
+                    await TimeDomainSignal_Alert.HideUsingLinearAnimationAsync(500);
+                }
+                await WaveletAlgorithmSelect_Region.ShowUsingLinearAnimationAsync(500);
             }
+
+            App.CurrentApp.Configuration.SaveSettingsToFile();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (App.CurrentApp.Configuration.Domain == App.FiremarkDomain.Time)
+                MethodSelect_Combo.SelectedIndex = 0;
+            else
+                MethodSelect_Combo.SelectedIndex = 1;
+
+            firstTimeInit = false;
         }
     }
 }
